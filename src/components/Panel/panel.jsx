@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import Movie from "../Movie/movie";
 
 class Panel extends Component {
   state = {
@@ -32,16 +33,7 @@ class Panel extends Component {
   };
   render() {
     const lista = this.state.movies.map(movie => (
-      <div className="card" style={{ width: "18rem" }}>
-        <h1>{movie.name}</h1>
-        <h2>Quedan {movie.boletos}</h2>
-        <button
-          className="btn btn-primary"
-          onClick={() => this.comprarBoleta(movie.id)}
-        >
-          Comprar
-        </button>
-      </div>
+      <Movie movie={movie} comprarBoleta={() => this.comprarBoleta(movie.id)} />
     ));
     return (
       <div>
